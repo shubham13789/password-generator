@@ -22,6 +22,11 @@ const saveToFile = () => {
     return
   }
 
+  if (password.value.length !== 12) {
+    errorMessage.value = 'Password must be exactly 12 characters long.'
+    return
+  }
+
   const fileName = websiteName.value + '.txt'
   const content = `Website: ${websiteName.value}\nPassword: ${password.value}`
   const blob = new Blob([content], { type: 'text/plain' })
